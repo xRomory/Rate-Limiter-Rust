@@ -39,10 +39,10 @@ By the end, you will understand:
 **Goal:** Understand how rate limiting works internally.
 
 #### Tasks:
-- [ ] Implement a `TokenBucket` struct
-- [ ] Add:
-  - [ ] `new(capacity, refill_rate)`
-  - [ ] `allow_request() -> bool`
+- [x] Implement a `TokenBucket` struct
+- [x] Add:
+  - [x] `new(capacity, refill_rate)`
+  - [x] `allow_request() -> bool`
 - [ ] Simulate requests in `main.rs`
 - [ ] Print:
   - [ ] `"Allowed"`
