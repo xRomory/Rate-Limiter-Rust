@@ -35,6 +35,7 @@ By the end, you will understand:
 ---
 
 ### Phase 1 — Core Rate Limiter Logic (No API Yet)
+**Phase 1: DONE**
 
 **Goal:** Understand how rate limiting works internally.
 
@@ -43,10 +44,10 @@ By the end, you will understand:
 - [x] Add:
   - [x] `new(capacity, refill_rate)`
   - [x] `allow_request() -> bool`
-- [ ] Simulate requests in `main.rs`
-- [ ] Print:
-  - [ ] `"Allowed"`
-  - [ ] `"Rate Limited"`
+- [x] Simulate requests in `main.rs`
+- [x] Print:
+  - [x] `"Allowed"`
+  - [x] `"Rate Limited"`
 
 #### Key Concepts:
 - Time tracking (`Instant`)
