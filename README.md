@@ -35,18 +35,19 @@ By the end, you will understand:
 ---
 
 ### Phase 1 — Core Rate Limiter Logic (No API Yet)
+**Phase 1: DONE**
 
 **Goal:** Understand how rate limiting works internally.
 
 #### Tasks:
-- [ ] Implement a `TokenBucket` struct
-- [ ] Add:
-  - [ ] `new(capacity, refill_rate)`
-  - [ ] `allow_request() -> bool`
-- [ ] Simulate requests in `main.rs`
-- [ ] Print:
-  - [ ] `"Allowed"`
-  - [ ] `"Rate Limited"`
+- [x] Implement a `TokenBucket` struct
+- [x] Add:
+  - [x] `new(capacity, refill_rate)`
+  - [x] `allow_request() -> bool`
+- [x] Simulate requests in `main.rs`
+- [x] Print:
+  - [x] `"Allowed"`
+  - [x] `"Rate Limited"`
 
 #### Key Concepts:
 - Time tracking (`Instant`)
@@ -63,6 +64,7 @@ Request 11 → Rate Limited
 ---
 
 ### Phase 2 — Expose as an HTTP API
+**Phase 2: DONE**
 
 **Goal:** Turn your logic into a usable web service.
 
@@ -70,15 +72,15 @@ Request 11 → Rate Limited
 - Axum (lightweight and beginner-friendly)
 
 #### Tasks:
-- [ ] Create a basic HTTP server
-- [ ] Add endpoint:
-  - [ ] `GET /request`
-- [ ] Return:
-  - [ ] `200 OK` → allowed
-  - [ ] `429 Too Many Requests` → blocked
-- [ ] Store limiter in shared state using:
-  - [ ] `Arc`
-  - [ ] `Mutex`
+- [x] Create a basic HTTP server
+- [x] Add endpoint:
+  - [x] `GET /request`
+- [x] Return:
+  - [x] `200 OK` → allowed
+  - [x] `429 Too Many Requests` → blocked
+- [x] Store limiter in shared state using:
+  - [x] `Arc`
+  - [x] `Mutex`
 
 #### Key Concepts:
 - Shared state in Rust
