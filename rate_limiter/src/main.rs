@@ -1,19 +1,24 @@
-use std::{thread, time::Duration};
+use std::sync::{Arc, Mutex};
 
-use rate_limiter::token_bucket::TokenBucket;
+use axum::{routing::get, Router};
+use rate_limiter::{
+    api::handler::handle_request,
+    token_bucket::TokenBucket
+};
 
-fn main() {
-    let mut limter = TokenBucket::new(5, 1.0);
+#[tokio::main]
+async fn main() {
+    let limiter = Arc::new(Mutex::new(TokenBucket::new(5, 2.0)));
 
-    for i in 1..=15 {
-        let allowed = limter.allow_request();
+    let app = Router::new()
+        .route("/request", get(handle_request))
+        .with_state(limiter);
 
-        if allowed {
-            println!("Request {} → Allowed", i);
-        } else {
-            println!("Request {} → Rate Limited", i);
-        }
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
+        .await
+        .unwrap();
 
-        thread::sleep(Duration::from_millis(200));
-    }
+    println!("Server is running on http://127.0.0.1:3000");
+
+    axum::serve(listener, app).await.unwrap();
 }
