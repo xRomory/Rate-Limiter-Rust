@@ -64,6 +64,7 @@ Request 11 → Rate Limited
 ---
 
 ### Phase 2 — Expose as an HTTP API
+**Phase 2: DONE**
 
 **Goal:** Turn your logic into a usable web service.
 
@@ -71,15 +72,15 @@ Request 11 → Rate Limited
 - Axum (lightweight and beginner-friendly)
 
 #### Tasks:
-- [ ] Create a basic HTTP server
-- [ ] Add endpoint:
-  - [ ] `GET /request`
-- [ ] Return:
-  - [ ] `200 OK` → allowed
-  - [ ] `429 Too Many Requests` → blocked
-- [ ] Store limiter in shared state using:
-  - [ ] `Arc`
-  - [ ] `Mutex`
+- [x] Create a basic HTTP server
+- [x] Add endpoint:
+  - [x] `GET /request`
+- [x] Return:
+  - [x] `200 OK` → allowed
+  - [x] `429 Too Many Requests` → blocked
+- [x] Store limiter in shared state using:
+  - [x] `Arc`
+  - [x] `Mutex`
 
 #### Key Concepts:
 - Shared state in Rust
